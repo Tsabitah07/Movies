@@ -52,7 +52,7 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("REGISTER PAGE"),),
+      appBar: AppBar(title: Text(""),),
       body: Center(
         child: Container(
           child: Column(
