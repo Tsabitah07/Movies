@@ -10,29 +10,29 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  Color buttonLogin = Colors.blueAccent;
-  Color buttonRegister = Colors.blueAccent;
+  Color buttonLogin = Colors.black38;
+  Color buttonRegister = Colors.black38;
 
   void _onLoginPressed() {
     setState(() {
-      buttonLogin = Colors.lightBlueAccent;
+      buttonLogin = Colors.grey;
     });
 
     Future.delayed(Duration(milliseconds: 140), () {
       setState(() {
-        buttonLogin = Colors.blueAccent;
+        buttonLogin = Colors.black38;
       });
     });
   }
 
   void _onRegisterPressed() {
     setState(() {
-      buttonRegister = Colors.lightBlueAccent;
+      buttonRegister = Colors.grey;
     });
 
     Future.delayed(Duration(milliseconds: 140), () {
       setState(() {
-        buttonRegister = Colors.blueAccent;
+        buttonRegister = Colors.black38;
       });
     });
   }
@@ -82,9 +82,12 @@ class _LoginPageState extends State<LoginPage> {
                           MaterialPageRoute(builder: (context) => const HomePage()),
                         );
                       },
+                      style: ElevatedButton.styleFrom(
+                        primary: buttonLogin
+                      ),
                       child: Text('Login', style: TextStyle(
                         fontSize: 19,
-                        color: Colors.black,
+                        color: Colors.white,
                       )),
                     ),
                   ),
@@ -99,9 +102,12 @@ class _LoginPageState extends State<LoginPage> {
                             MaterialPageRoute(builder: (context) => const RegisterPage()),
                         );
                       },
+                      style: ElevatedButton.styleFrom(
+                        primary: buttonRegister
+                      ),
                       child: Text('Register', style: TextStyle(
                         fontSize: 19,
-                        color: Colors.black,
+                        color: Colors.white,
                       )),
                     ),
                   ),
