@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'MoviesData.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -14,12 +15,12 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    favoriteMovie?.add(MoviesData("Pacific Rim", "3.5 / 5", 'assets/image/pacific_rim.png', 2013));
-    favoriteMovie?.add(MoviesData("The Maze Runner", "4 / 5", 'assets/image/the_maze_runner.png', 2014));
-    favoriteMovie?.add(MoviesData("Divergent", "4 / 5", 'assets/image/divergent.png', 2014));
-    favoriteMovie?.add(MoviesData("Interstellar", "4.5 / 5", 'assets/image/interstellar.png', 2014));
-    favoriteMovie?.add(MoviesData("Annihilation", "4 / 5", 'assets/image/annihilation.png', 2018));
-    favoriteMovie?.add(MoviesData("Ender's Game", "3.5 / 5", 'assets/image/enders_game.png', 2013));
+    favoriteMovie?.add(MoviesData("Pacific Rim", 'assets/image/pacific_rim.png', 4.5, 2013));
+    favoriteMovie?.add(MoviesData("The Maze Runner", 'assets/image/the_maze_runner.png', 4.0, 2014));
+    favoriteMovie?.add(MoviesData("Divergent", 'assets/image/divergent.png', 4.3, 2014));
+    favoriteMovie?.add(MoviesData("Interstellar", 'assets/image/interstellar.png', 5.0, 2014));
+    favoriteMovie?.add(MoviesData("Annihilation", 'assets/image/annihilation.png', 4.0, 2018));
+    favoriteMovie?.add(MoviesData("Ender's Game", 'assets/image/enders_game.png', 4.5, 2013));
 
   }
 
@@ -60,18 +61,40 @@ class _HomePageState extends State<HomePage> {
                               fontWeight: FontWeight.bold
                             ),),
                             Padding(
-                              padding: const EdgeInsets.only(top: 11),
-                              child: Text("Rate : " + favoriteMovie![index].rate,
-                              style: TextStyle(
+                              padding: const EdgeInsets.only(top: 17),
+                              child: Text("Release In " + favoriteMovie![index].releaseDate.toString(),
+                                style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 16
+                                fontSize: 17
                               ),),
                             ),
-                            Text("Release Date : " + favoriteMovie![index].releaseDate.toString(),
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16
-                            ),),
+                            SizedBox(height: 5),
+                            Row(
+                              children: [
+                                Text("Rate : ",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 17
+                                  ),
+                                ),
+                                RatingBar.builder(
+                                  initialRating: favoriteMovie![index].rate.toDouble(),
+                                  minRating: 1,
+                                  direction: Axis.horizontal,
+                                  allowHalfRating: true,
+                                  itemCount: 5,
+                                  itemSize: 27,
+                                  itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
+                                  itemBuilder: (context, _) => Icon(
+                                    Icons.star,
+                                    color: Colors.amber,
+                                  ),
+                                  onRatingUpdate: (rating) {
+                                    print(rating);
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
