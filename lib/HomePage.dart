@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'DetailPage.dart';
 import 'MoviesData.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -34,71 +35,81 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.all(7),
             itemCount: favoriteMovie?.length,
             itemBuilder: (BuildContext context, int index) {
-              return Card(
-                color: Colors.black45,
-                margin: EdgeInsets.all(11),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(13),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.only(top: 17, bottom: 17, left: 13, right: 9),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Image.asset(favoriteMovie![index].poster,
-                      width: 107, height: 143,),
-                      SizedBox(width: 10), // Add some spacing between the image and text
-                      Padding(
-                        padding: const EdgeInsets.only(top: 19, left: 7),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(favoriteMovie![index].name,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 24,
-                              fontStyle: FontStyle.italic,
-                              fontWeight: FontWeight.bold
-                            ),),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 17),
-                              child: Text("Release In " + favoriteMovie![index].releaseDate.toString(),
+              return GestureDetector(
+                onTap: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DetailPage(movie: favoriteMovie![index]),
+                    ),
+                  );
+                },
+                child: Card(
+                  color: Colors.black45,
+                  margin: EdgeInsets.all(11),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(13),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 17, bottom: 17, left: 13, right: 9),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Image.asset(favoriteMovie![index].poster,
+                          width: 107, height: 143,),
+                        SizedBox(width: 10), // Add some spacing between the image and text
+                        Padding(
+                          padding: const EdgeInsets.only(top: 19, left: 7),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(favoriteMovie![index].name,
                                 style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 17
-                              ),),
-                            ),
-                            SizedBox(height: 5),
-                            Row(
-                              children: [
-                                Text("Rate : ",
+                                  color: Colors.white,
+                                  fontSize: 24,
+                                  fontStyle: FontStyle.italic,
+                                  fontWeight: FontWeight.bold
+                                ),),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 17),
+                                child: Text("Release In " + favoriteMovie![index].releaseDate.toString(),
                                   style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 17
+                                  ),),
+                              ),
+                              SizedBox(height: 5),
+                              Row(
+                                children: [
+                                  Text("Rate : ",
+                                    style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 17
+                                    ),
                                   ),
-                                ),
-                                RatingBar.builder(
-                                  initialRating: favoriteMovie![index].rate.toDouble(),
-                                  minRating: 1,
-                                  direction: Axis.horizontal,
-                                  allowHalfRating: true,
-                                  itemCount: 5,
-                                  itemSize: 27,
-                                  itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
-                                  itemBuilder: (context, _) => Icon(
-                                    Icons.star,
-                                    color: Colors.amber,
+                                  RatingBar.builder(
+                                    initialRating: favoriteMovie![index].rate.toDouble(),
+                                    minRating: 1,
+                                    direction: Axis.horizontal,
+                                    allowHalfRating: true,
+                                    itemCount: 5,
+                                    itemSize: 27,
+                                    itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
+                                    itemBuilder: (context, _) => Icon(
+                                      Icons.star,
+                                      color: Colors.amber,
+                                    ),
+                                    onRatingUpdate: (rating) {
+                                      print(rating);
+                                    },
                                   ),
-                                  onRatingUpdate: (rating) {
-                                    print(rating);
-                                  },
-                                ),
-                              ],
-                            ),
-                          ],
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               );
