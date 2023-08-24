@@ -14,7 +14,13 @@ class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.movie.name)),
+      backgroundColor: Colors.white,
+      appBar: AppBar(title: Text(widget.movie.name),
+      backgroundColor: Colors.transparent,
+      elevation: 0,),
+      body: SingleChildScrollView(
+        child: Column(),
+      ),
     );
   }
 }

@@ -66,6 +66,7 @@ flutter:
     - assets/image/enders_game.png
     - assets/image/annihilation.png
     - assets/image/interstellar.png
+    - assets/icon/back.svg
 
   # To add assets to your application, add an assets section, like this:
   # assets:
