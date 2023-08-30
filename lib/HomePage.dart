@@ -16,12 +16,12 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    favoriteMovie?.add(MoviesData("Pacific Rim", 'assets/image/pacific_rim.png', 4.5, 2013));
-    favoriteMovie?.add(MoviesData("The Maze Runner", 'assets/image/the_maze_runner.png', 4.0, 2014));
-    favoriteMovie?.add(MoviesData("Divergent", 'assets/image/divergent.png', 4.3, 2014));
-    favoriteMovie?.add(MoviesData("Interstellar", 'assets/image/interstellar.png', 5.0, 2014));
-    favoriteMovie?.add(MoviesData("Annihilation", 'assets/image/annihilation.png', 4.0, 2018));
-    favoriteMovie?.add(MoviesData("Ender's Game", 'assets/image/enders_game.png', 4.5, 2013));
+    favoriteMovie?.add(MoviesData("Pacific Rim", 'assets/image/pacific_rim.png','assets/poster/pacific_rim.png', 4.5, 2013));
+    favoriteMovie?.add(MoviesData("The Maze Runner", 'assets/image/the_maze_runner.png','assets/poster/the_maze_runner.png', 4.0, 2014));
+    favoriteMovie?.add(MoviesData("Divergent", 'assets/image/divergent.png','assets/poster/divergent.png', 4.3, 2014));
+    favoriteMovie?.add(MoviesData("Interstellar", 'assets/image/interstellar.png','assets/poster/interstellar.png', 5.0, 2014));
+    favoriteMovie?.add(MoviesData("Annihilation", 'assets/image/annihilation.png','assets/poster/annihilation.png', 4.0, 2018));
+    favoriteMovie?.add(MoviesData("Ender's Game", 'assets/image/enders_game.png','assets/poster/enders_game.png', 4.5, 2013));
 
   }
 

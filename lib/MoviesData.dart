@@ -10,10 +10,11 @@ class MoviesData{
 
   late int releaseDate;
 
-  MoviesData(String name, String poster,double rate, int releaseDate){
+  MoviesData(String name, String posterVertical,String posterHorizontal ,double rate, int releaseDate){
     this.name = name;
     this.rate = rate;
-    this.posterVertical = poster;
+    this.posterVertical = posterVertical;
     this.releaseDate = releaseDate;
+    this.posterHorizontal = posterHorizontal;
   }
 }

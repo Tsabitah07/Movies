@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movies/MoviesData.dart';
 
 class DetailPage extends StatefulWidget {
@@ -16,15 +17,42 @@ class _DetailPageState extends State<DetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(title: Text(widget.movie.name),
-      backgroundColor: Colors.black45.withOpacity(.2),
-      elevation: 0,),
+      // appBar: AppBar(title: Text(widget.movie.name),
+      // backgroundColor: Colors.black45.withOpacity(.2),
+      // elevation: 0,),
       body: Stack(
         children: [
           Container(
             width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height * .4,
             decoration: BoxDecoration(
-              color: Colors.black45.withOpacity(.2),
+              color: Colors.black45,
+              image: DecorationImage(
+                image: AssetImage(widget.movie.posterHorizontal),
+                fit: BoxFit.cover
+              ),
+            ),
+            child: Container(
+              color: Colors.black.withOpacity(0.5), // Adjust opacity as needed
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).pop();
+            },
+            child: Container(
+              margin: EdgeInsets.only(top: 31, left: 27),
+              height: 39,
+              width: 37,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(21),
+              ),
+              child: Center(
+                child: SvgPicture.asset(
+                  'assets/icon/back.svg',
+                ),
+              ),
             ),
           ),
           Align(
