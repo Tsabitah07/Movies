@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Image.asset(favoriteMovie![index].poster,
+                        Image.asset(favoriteMovie![index].posterVertical,
                           width: 107, height: 143,),
                         SizedBox(width: 10), // Add some spacing between the image and text
                         Padding(
@@ -100,8 +100,8 @@ class _HomePageState extends State<HomePage> {
                                       color: Colors.amber,
                                     ),
                                     onRatingUpdate: (rating) {
-                                      print(rating);
                                     },
+                                    ignoreGestures: true,
                                   ),
                                 ],
                               ),

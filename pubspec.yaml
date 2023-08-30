@@ -67,6 +67,12 @@ flutter:
     - assets/image/annihilation.png
     - assets/image/interstellar.png
     - assets/icon/back.svg
+    - assets/poster/pacific_rim.png
+    - assets/poster/annihilation.png
+    - assets/poster/divergent.png
+    - assets/poster/enders_game.png
+    - assets/poster/the_maze_runner.png
+    - assets/poster/interstellar.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

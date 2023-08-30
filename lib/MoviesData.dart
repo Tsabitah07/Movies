@@ -2,7 +2,10 @@ import 'dart:ui';
 
 class MoviesData{
   late String name;
-  late String poster;
+  late String posterVertical;
+  late String posterHorizontal;
+  late String desc;
+
   late double rate;
 
   late int releaseDate;
@@ -10,7 +13,7 @@ class MoviesData{
   MoviesData(String name, String poster,double rate, int releaseDate){
     this.name = name;
     this.rate = rate;
-    this.poster = poster;
+    this.posterVertical = poster;
     this.releaseDate = releaseDate;
   }
 }
