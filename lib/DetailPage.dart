@@ -43,7 +43,7 @@ class _DetailPageState extends State<DetailPage> {
             child: Container(
               margin: EdgeInsets.only(top: 31, left: 27),
               height: 39,
-              width: 37,
+              width: 39,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(21),
@@ -57,87 +57,136 @@ class _DetailPageState extends State<DetailPage> {
           ),
           Align(
             alignment: Alignment.bottomCenter,
-            child: Container(
-              height: MediaQuery.of(context).size.height * .7,
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(21), topRight: Radius.circular(21)
-                ),
-                boxShadow: [BoxShadow(
-                  color: Colors.white.withOpacity(.3),
-                  offset: Offset(0, -4),
-                  blurRadius: 7
-                )]
-              ),
+            child: SingleChildScrollView(
               child: Container(
-                margin: EdgeInsets.only(left: 13, right: 13),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Transform.translate(
-                          offset: Offset(10, -39), // Adjust the X and Y values for the desired offset
-                          child: Image.asset(
-                            widget.movie.posterVertical,
-                            width: 113,
-                            height: 157,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 23),
-                              child: Text(widget.movie.name,
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 27
-                              ),),
-                            ),
-                            Padding(padding: EdgeInsets.only(left: 23),
-                              child: Text("Release In " + widget.movie.releaseDate.toString(),
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 17
-                                ),),
-                            ),
-                            Row(
-                              children: [
-                                Padding(padding: EdgeInsets.only(left: 23),
-                                  child: Text("Rate : ",
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 17
-                                    ),),
-                                ),
-                                RatingBar.builder(
-                                  initialRating: widget.movie.rate.toDouble(),
-                                  minRating: 1,
-                                  direction: Axis.horizontal,
-                                  allowHalfRating: true,
-                                  itemCount: 5,
-                                  itemSize: 27,
-                                  itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
-                                  itemBuilder: (context, _) => Icon(
-                                    Icons.star,
-                                    color: Colors.amber,
-                                  ),
-                                  onRatingUpdate: (rating) {},
-                                  ignoreGestures: true,
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
+                height: MediaQuery.of(context).size.height * .75,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(21), topRight: Radius.circular(21)
                     ),
-                  ],
+                    boxShadow: [BoxShadow(
+                        color: Colors.white.withOpacity(.3),
+                        offset: Offset(0, -4),
+                        blurRadius: 7
+                    )]
+                ),
+                child: Container(
+                  margin: EdgeInsets.only(left: 13, right: 13),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Transform.translate(
+                            offset: Offset(10, -39), // Adjust the X and Y values for the desired offset
+                            child: Image.asset(
+                              widget.movie.posterVertical,
+                              width: 113,
+                              height: 157,
+                            ),
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 23),
+                                child: Text(widget.movie.name,
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 27
+                                  ),),
+                              ),
+                              Padding(padding: EdgeInsets.only(left: 23),
+                                child: Text("Release In " + widget.movie.releaseDate.toString(),
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 17
+                                  ),),
+                              ),
+                              Row(
+                                children: [
+                                  Padding(padding: EdgeInsets.only(left: 23),
+                                    child: Text("Rate : ",
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 17
+                                      ),),
+                                  ),
+                                  RatingBar.builder(
+                                    initialRating: widget.movie.rate.toDouble(),
+                                    minRating: 1,
+                                    direction: Axis.horizontal,
+                                    allowHalfRating: true,
+                                    itemCount: 5,
+                                    itemSize: 27,
+                                    itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
+                                    itemBuilder: (context, _) => Icon(
+                                      Icons.star,
+                                      color: Colors.amber,
+                                    ),
+                                    onRatingUpdate: (rating) {},
+                                    ignoreGestures: true,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(left: 19, right: 17),
+                                child: Text(
+                                  'Available In ${widget.movie.watchApp}',
+                                  style: TextStyle(
+                                    fontSize: 17,
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(left: 19, right: 17, top: 7), // Remove top margin for "Genre"
+                                child: Text(
+                                  'Genre : ${widget.movie.genre}',
+                                  style: TextStyle(
+                                    fontSize: 17,
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(left: 19, right: 17, top: 7),
+                                child: Text("Synopsis : ",
+                                  style: TextStyle(
+                                    fontSize: 17
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(left: 19, right: 17, top: 5),
+                                constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width - 70),
+                                child: Text(
+                                  widget.movie.desc,
+                                  style: TextStyle(
+                                    fontSize: 17,
+                                  ),
+                                  textAlign: TextAlign.justify,
+                                ),
+                              )
+                            ],
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ),
-            ),
+            )
           )
         ],
       ),
