@@ -36,7 +36,7 @@ class _DetailPageState extends State<DetailPage> {
               color: Colors.black.withOpacity(0.5), // Adjust opacity as needed
             ),
           ),
-          GestureDetector(
+          InkWell(
             onTap: () {
               Navigator.of(context).pop();
             },
@@ -59,7 +59,7 @@ class _DetailPageState extends State<DetailPage> {
             alignment: Alignment.bottomCenter,
             child: SingleChildScrollView(
               child: Container(
-                height: MediaQuery.of(context).size.height * .75,
+                height: MediaQuery.of(context).size.height * .73 ,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                     color: Colors.white,

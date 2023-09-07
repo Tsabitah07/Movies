@@ -108,7 +108,7 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                   RatingBar.builder(
-                                    initialRating: favoriteMovie![index].rate.toDouble(),
+                                    initialRating: favoriteMovie![index].rate,
                                     minRating: 1,
                                     direction: Axis.horizontal,
                                     allowHalfRating: true,
